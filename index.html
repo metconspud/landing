@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2X6W6ZYG0C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2X6W6ZYG0C');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Metconspud — Training that fits around your life</title>
 <meta name="description" content="Personal training built around you. Real programming, real check-ins, real progress. From £54/month.">
 <meta property="og:title" content="Metconspud — Training that fits around your life">
-<meta property="og:description" content="Personal training built around you. Real programming, real check-ins, real progress.">
+<meta property="og:description" content="Personal training built around you. 7 days free, then £54/month.">
+<meta property="og:image" content="https://metconspud.fit/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metconspud.fit">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Metconspud — Training that fits around your life">
+<meta name="twitter:description" content="Personal training built around you. 7 days free, then £54/month.">
+<meta name="twitter:image" content="https://metconspud.fit/og-image.png">
 <meta name="theme-color" content="#1a1a18">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -396,6 +396,7 @@ img{max-width:100%;display:block;}
           <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Anything else? <span style="font-weight:500;text-transform:none;">(optional)</span></label>
           <textarea id="f-notes" placeholder="Equipment available, injuries, schedule, anything you want your coach to know…" rows="3" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;resize:vertical;transition:border-color .15s;line-height:1.5;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'"></textarea>
         </div>
+        <input type="text" name="_gotcha" id="f-gotcha" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
         <div id="form-err" style="display:none;background:#FCEBEB;color:#791F1F;font-size:13px;font-weight:700;padding:10px 13px;border-radius:var(--r);margin-bottom:16px;"></div>
         <button onclick="submitSignup()" id="submit-btn" style="width:100%;background:var(--ink);color:var(--paper);padding:15px;border:none;border-radius:var(--r);font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:-.01em;transition:opacity .15s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
           Start my free 7-day trial →
@@ -452,6 +453,14 @@ async function submitSignup() {
   const btn       = document.getElementById('submit-btn');
 
   errEl.style.display = 'none';
+  // Honeypot — if this hidden field is filled, it's a bot. Silently succeed without sending.
+  if(document.getElementById('f-gotcha').value) {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('signup-success').style.display = 'block';
+    document.getElementById('coach-phone').textContent = COACH_PHONE_DISPLAY;
+    document.getElementById('coach-phone').href = 'tel:' + COACH_PHONE;
+    return;
+  }
   if(!firstname || !lastname) { errEl.textContent = 'Please enter your full name.'; errEl.style.display = 'block'; return; }
   if(!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
   if(!goal) { errEl.textContent = 'Please select your main goal.'; errEl.style.display = 'block'; return; }
