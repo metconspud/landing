@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metconspud — Training that fits around your life</title>
+<meta name="description" content="Personal training built around you. Real programming, real check-ins, real progress. From £54/month.">
+<meta property="og:title" content="Metconspud — Training that fits around your life">
+<meta property="og:description" content="Personal training built around you. Real programming, real check-ins, real progress.">
+<meta name="theme-color" content="#1a1a18">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#1a1a18;
+  --ink2:#3a3a36;
+  --ink3:#6b6a65;
+  --paper:#ffffff;
+  --paper2:#f7f6f3;
+  --paper3:#f0efe9;
+  --accent:#1a1a18;
+  --accent-light:#f0efe9;
+  --bd:rgba(0,0,0,0.1);
+  --bd2:rgba(0,0,0,0.18);
+  --r:8px;
+  --rl:14px;
+  --max:1140px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--bd);padding:0 24px;}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;height:60px;gap:32px;}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;text-transform:uppercase;}
+.nav-logo span{color:var(--ink3);}
+.nav-links{display:flex;gap:28px;margin-left:auto;}
+.nav-links a{font-size:14px;font-weight:600;color:var(--ink3);transition:color .15s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{margin-left:8px;background:var(--ink);color:var(--paper);padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;transition:opacity .15s;}
+.nav-cta:hover{opacity:.85;}
+.nav-login{font-size:14px;font-weight:600;color:var(--ink3);}
+.nav-login:hover{color:var(--ink);}
+@media(max-width:680px){.nav-links{display:none;}.nav-login{display:none;}}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero{background:var(--ink);color:var(--paper);padding:80px 24px 72px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,255,255,.04) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:24px;}
+.hero-headline{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(48px,8vw,96px);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:28px;}
+.hero-headline em{font-style:italic;color:rgba(255,255,255,.45);}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 36px;font-weight:400;line-height:1.5;}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.btn-primary{background:var(--paper);color:var(--ink);padding:14px 28px;border-radius:var(--r);font-size:15px;font-weight:800;letter-spacing:-.01em;transition:opacity .15s;border:none;cursor:pointer;display:inline-block;}
+.btn-primary:hover{opacity:.88;}
+.btn-ghost{color:rgba(255,255,255,.7);padding:14px 20px;border-radius:var(--r);font-size:15px;font-weight:600;border:1.5px solid rgba(255,255,255,.2);transition:all .15s;display:inline-block;}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:var(--paper);}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:20px;font-size:13px;color:rgba(255,255,255,.4);font-weight:600;flex-wrap:wrap;}
+.hero-trust span::before{content:'✓  ';}
+
+/* ── Section base ─────────────────────────────────────────── */
+.section{padding:80px 24px;}
+.section-inner{max-width:var(--max);margin:0 auto;}
+.section-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:16px;}
+.section-sub{font-size:18px;color:var(--ink3);max-width:540px;line-height:1.55;margin-bottom:48px;}
+
+/* ── What you get ─────────────────────────────────────────── */
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:var(--rl);overflow:hidden;}
+.what-item{background:var(--paper);padding:28px 24px;}
+.what-icon{font-size:24px;margin-bottom:14px;}
+.what-title{font-size:15px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;}
+.what-body{font-size:14px;color:var(--ink3);line-height:1.6;}
+@media(max-width:760px){.what-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.what-grid{grid-template-columns:1fr;}}
+
+/* ── How it works ─────────────────────────────────────────── */
+.how-section{background:var(--ink);color:var(--paper);}
+.how-section .section-eyebrow{color:rgba(255,255,255,.4);}
+.how-section .section-sub{color:rgba(255,255,255,.55);}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 60px;}
+.how-item{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;}
+.how-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:10px;text-transform:uppercase;}
+.how-title{font-size:17px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;}
+.how-body{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65;}
+@media(max-width:600px){.how-grid{grid-template-columns:1fr;gap:28px;}}
+
+/* ── Pricing ──────────────────────────────────────────────── */
+.pricing-section{background:var(--paper2);}
+.price-card{background:var(--paper);border:1.5px solid var(--bd2);border-radius:var(--rl);padding:36px;max-width:480px;}
+.price-badge{display:inline-block;background:var(--ink);color:var(--paper);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:20px;}
+.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:6px;}
+.price-amount strong{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:72px;letter-spacing:-.04em;line-height:1;}
+.price-amount span{font-size:18px;font-weight:700;color:var(--ink3);}
+.price-tagline{font-size:15px;color:var(--ink3);margin-bottom:28px;font-weight:500;}
+.price-features{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:12px;}
+.price-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:600;}
+.price-features li::before{content:'✓';font-weight:800;color:var(--ink);flex-shrink:0;margin-top:1px;}
+.price-cta{display:block;background:var(--ink);color:var(--paper);text-align:center;padding:15px;border-radius:var(--r);font-size:15px;font-weight:800;letter-spacing:-.01em;transition:opacity .15s;}
+.price-cta:hover{opacity:.85;}
+.price-note{font-size:13px;color:var(--ink3);text-align:center;margin-top:14px;}
+.pricing-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.pricing-pitch .pitch-item{padding:20px 0;border-bottom:1px solid var(--bd);}
+.pricing-pitch .pitch-item:first-child{border-top:1px solid var(--bd);}
+.pitch-title{font-size:15px;font-weight:800;margin-bottom:5px;}
+.pitch-body{font-size:14px;color:var(--ink3);line-height:1.6;}
+@media(max-width:760px){.pricing-layout{grid-template-columns:1fr;}.price-card{max-width:100%;}}
+
+/* ── Testimonials ─────────────────────────────────────────── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.testi-card{background:var(--paper2);border-radius:var(--rl);padding:24px;}
+.testi-quote{font-size:15px;line-height:1.65;margin-bottom:18px;color:var(--ink2);}
+.testi-quote::before{content:'"';font-family:'Barlow Condensed',sans-serif;font-size:48px;line-height:.8;color:var(--bd2);display:block;margin-bottom:8px;}
+.testi-author{font-size:13px;font-weight:800;color:var(--ink);}
+.testi-meta{font-size:12px;color:var(--ink3);margin-top:2px;font-weight:500;}
+@media(max-width:760px){.testi-grid{grid-template-columns:1fr;}}
+@media(min-width:480px) and (max-width:760px){.testi-grid{grid-template-columns:1fr 1fr;}}
+
+/* ── CTA banner ───────────────────────────────────────────── */
+.cta-banner{background:var(--ink);color:var(--paper);padding:80px 24px;text-align:center;}
+.cta-banner .section-title{color:var(--paper);}
+.cta-banner .section-sub{color:rgba(255,255,255,.55);margin:0 auto 36px;}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:32px 24px;color:rgba(255,255,255,.35);font-size:13px;}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:-.02em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{color:rgba(255,255,255,.35);transition:color .15s;}
+.footer-links a:hover{color:rgba(255,255,255,.7);}
+
+/* ── Scroll reveal ────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Metcon<span>spud</span></div>
+    <div class="nav-links">
+      <a href="#what-you-get">What's included</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a href="https://app.metconspud.fit" class="nav-login">Log in</a>
+    <a href="mailto:hello@metconspud.fit" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">7-day free trial · No card required · Cancel anytime</div>
+  <h1 class="hero-headline">Training that<br><em>actually</em><br>fits your life.</h1>
+  <p class="hero-sub">Real programming, real check-ins, real accountability. Not a generic plan. Not an algorithm. A coach who knows you.</p>
+  <div class="hero-actions">
+    <a href="#signup" class="btn-primary">Start your free 7 days</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works</a>
+  </div>
+  <div class="hero-trust">
+    <span>7 days free</span>
+    <span>Custom programming</span>
+    <span>No card required</span>
+    <span>Cancel anytime</span>
+  </div>
+</section>
+
+<!-- What you get -->
+<section class="section" id="what-you-get">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">What's included</div>
+      <h2 class="section-title">Everything you need.<br>Nothing you won't use.</h2>
+      <p class="section-sub">Built for people who want to train seriously without overcomplicating it.</p>
+    </div>
+    <div class="what-grid reveal">
+      <div class="what-item">
+        <div class="what-icon">📋</div>
+        <div class="what-title">Personalised programming</div>
+        <div class="what-body">Every session written for your goals, your equipment, your schedule. Adjusted as you progress.</div>
+      </div>
+      <div class="what-item">
+        <div class="what-icon">📱</div>
+        <div class="what-title">Dedicated client app</div>
+        <div class="what-body">Log every session, track weights, see your history and streak. Your training lives in one place.</div>
+      </div>
+      <div class="what-item">
+        <div class="what-icon">✅</div>
+        <div class="what-title">Weekly check-ins</div>
+        <div class="what-body">Weight, mood, sleep, energy — tracked every week so your coach can see what's really going on.</div>
+      </div>
+      <div class="what-item">
+        <div class="what-icon">🎥</div>
+        <div class="what-title">Exercise video demos</div>
+        <div class="what-body">Every exercise has a video so you know exactly what you're doing before you start a set.</div>
+      </div>
+      <div class="what-item">
+        <div class="what-icon">🥗</div>
+        <div class="what-title">Nutrition tracking</div>
+        <div class="what-body">Log food, track macros, monitor calories. Built into the same app as your training.</div>
+      </div>
+      <div class="what-item">
+        <div class="what-icon">📸</div>
+        <div class="what-title">Progress photos</div>
+        <div class="what-body">Upload and compare photos side by side. See what the scale can't always show you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section how-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">How it works</div>
+      <h2 class="section-title" style="color:var(--paper);">Simple by design.</h2>
+      <p class="section-sub">No onboarding calls that go nowhere. You're training within days.</p>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-item">
+        <div class="how-num">Step one</div>
+        <div class="how-title">Get in touch</div>
+        <div class="how-body">Tell us your goals, training history, available equipment and schedule. Takes five minutes.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">Step two</div>
+        <div class="how-title">Get your programme</div>
+        <div class="how-body">Your coach builds a programme around you — not a template. It lands in your app, ready to go.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">Step three</div>
+        <div class="how-title">Train and log</div>
+        <div class="how-body">Open the app, follow the session, log your sets and reps. Your coach sees everything in real time.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">Step four</div>
+        <div class="how-title">Check in weekly</div>
+        <div class="how-body">Submit your weekly check-in. Your coach reviews it and adjusts the programme if anything needs to change.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="pricing-layout">
+      <div class="reveal">
+        <div class="section-eyebrow">Pricing</div>
+        <h2 class="section-title">One plan.<br>Everything included.</h2>
+        <div class="pricing-pitch">
+          <div class="pitch-item">
+            <div class="pitch-title">No contracts</div>
+            <div class="pitch-body">Cancel anytime, no questions asked. You stay because it's working, not because you're locked in.</div>
+          </div>
+          <div class="pitch-item">
+            <div class="pitch-title">Your coach adjusts as you go</div>
+            <div class="pitch-body">Life changes. Travel, injuries, life events — your programme moves with you.</div>
+          </div>
+          <div class="pitch-item">
+            <div class="pitch-title">Direct access</div>
+            <div class="pitch-body">Message your coach through the app. Real answers, not an FAQ.</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="price-card">
+          <div class="price-badge">Monthly coaching</div>
+          <div class="price-amount">
+            <strong>£54</strong>
+            <span>/month</span>
+          </div>
+          <div class="price-tagline">Start free for 7 days, then £54/month.</div>
+          <ul class="price-features">
+            <li>Personalised programme built for you</li>
+            <li>Weekly check-ins reviewed by your coach</li>
+            <li>Client app with full session logging</li>
+            <li>Exercise video demos for every movement</li>
+            <li>Nutrition and macro tracking</li>
+            <li>Progress photo comparisons</li>
+            <li>Programme adjusted as you progress</li>
+            <li>Direct coach messaging</li>
+          </ul>
+          <a href="#signup" class="price-cta">Start your free 7-day trial</a>
+          <div class="price-note">7 days free · No card required · Cancel anytime</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Results</div>
+      <h2 class="section-title">What clients say.</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-quote">The programme actually fits around my schedule instead of me having to fit around it. I've trained more consistently in the last three months than in the previous two years.</div>
+        <div class="testi-author">Sarah M.</div>
+        <div class="testi-meta">Client · 3 months</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">Having everything in one app makes it so easy to stay on top of it. I can see my weights from last session, log my food, and check in all in one place.</div>
+        <div class="testi-author">Dan T.</div>
+        <div class="testi-meta">Client · 5 months</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">My coach noticed I'd gone quiet for a week and reached out. That kind of attention is what I needed — someone actually paying attention, not just sending a template.</div>
+        <div class="testi-author">Emma R.</div>
+        <div class="testi-meta">Client · 7 months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="section-inner">
+    <div class="reveal">
+      <h2 class="section-title">Ready to train properly?</h2>
+      <p class="section-sub">7 days completely free. No card needed. Your coach will be in touch within 24 hours with your programme.</p>
+      <a href="#signup" class="btn-primary" style="font-size:16px;padding:16px 36px;">Start your free 7-day trial</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Signup form -->
+<section class="section" id="signup" style="background:var(--paper2);">
+  <div class="section-inner" style="max-width:560px;">
+    <div class="reveal" style="text-align:center;margin-bottom:36px;">
+      <div class="section-eyebrow">Get started</div>
+      <h2 class="section-title">Start your free<br>7-day trial</h2>
+      <p style="font-size:16px;color:var(--ink3);margin-top:12px;">No credit card. No commitment. Just fill in the form and your coach will be in touch within 24 hours.</p>
+    </div>
+    <div class="reveal">
+      <div id="signup-form" style="background:var(--paper);border:1.5px solid var(--bd2);border-radius:var(--rl);padding:32px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div>
+            <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">First name *</label>
+            <input type="text" id="f-firstname" placeholder="Sarah" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'">
+          </div>
+          <div>
+            <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Last name *</label>
+            <input type="text" id="f-lastname" placeholder="Johnson" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'">
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Email address *</label>
+          <input type="email" id="f-email" placeholder="sarah@email.com" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Main goal *</label>
+          <select id="f-goal" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;background:var(--paper);color:var(--ink);appearance:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'">
+            <option value="">Select your goal…</option>
+            <option>Lose body fat</option>
+            <option>Build muscle</option>
+            <option>Get stronger</option>
+            <option>Improve fitness & conditioning</option>
+            <option>Improve mobility & flexibility</option>
+            <option>General health & wellbeing</option>
+            <option>Train for a sport or event</option>
+          </select>
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Training experience</label>
+          <select id="f-experience" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;background:var(--paper);color:var(--ink);appearance:none;transition:border-color .15s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'">
+            <option value="">Select…</option>
+            <option>Complete beginner</option>
+            <option>Some experience (under 1 year)</option>
+            <option>Intermediate (1–3 years)</option>
+            <option>Experienced (3+ years)</option>
+          </select>
+        </div>
+        <div style="margin-bottom:24px;">
+          <label style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px;">Anything else? <span style="font-weight:500;text-transform:none;">(optional)</span></label>
+          <textarea id="f-notes" placeholder="Equipment available, injuries, schedule, anything you want your coach to know…" rows="3" style="width:100%;padding:11px 13px;font-size:14px;border:1.5px solid var(--bd2);border-radius:var(--r);font-family:inherit;outline:none;resize:vertical;transition:border-color .15s;line-height:1.5;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--bd2)'"></textarea>
+        </div>
+        <div id="form-err" style="display:none;background:#FCEBEB;color:#791F1F;font-size:13px;font-weight:700;padding:10px 13px;border-radius:var(--r);margin-bottom:16px;"></div>
+        <button onclick="submitSignup()" id="submit-btn" style="width:100%;background:var(--ink);color:var(--paper);padding:15px;border:none;border-radius:var(--r);font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:-.01em;transition:opacity .15s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          Start my free 7-day trial →
+        </button>
+        <div style="font-size:12px;color:var(--ink3);text-align:center;margin-top:12px;">No credit card required · Cancel anytime · Reply within 24 hours</div>
+      </div>
+      <!-- Success state -->
+      <div id="signup-success" style="display:none;background:var(--paper);border:1.5px solid var(--bd2);border-radius:var(--rl);padding:48px 32px;text-align:center;">
+        <div style="font-size:48px;margin-bottom:16px;">⚡</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:12px;">You're in!</h3>
+        <p style="font-size:16px;color:var(--ink3);line-height:1.6;margin-bottom:20px;">Your coach will be in touch within 24 hours. In the meantime, here's how to reach us directly:</p>
+        <div style="background:var(--paper2);border-radius:var(--r);padding:20px;font-size:15px;font-weight:700;">
+          📱 WhatsApp or call: <a href="tel:+447895173322" id="coach-phone" style="color:var(--ink);">07895 173322</a><br>
+          <span style="font-size:13px;font-weight:500;color:var(--ink3);margin-top:6px;display:block;">Or reply to the confirmation email we just sent you.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <img src="data:image/png;base64,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" alt="Metconspud" style="height:36px;width:36px;object-fit:contain;opacity:.5;">
+    <div class="footer-links">
+      <a href="https://app.metconspud.fit">Client login</a>
+      <a href="https://coach.metconspud.fit">Coach login</a>
+      <a href="mailto:hello@metconspud.fit">Contact</a>
+    </div>
+    <div>© 2025 Metconspud. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgddnaq';
+const COACH_PHONE = '+447895173322';
+const COACH_PHONE_DISPLAY = '07895 173322';
+
+async function submitSignup() {
+  const firstname = document.getElementById('f-firstname').value.trim();
+  const lastname  = document.getElementById('f-lastname').value.trim();
+  const email     = document.getElementById('f-email').value.trim();
+  const goal      = document.getElementById('f-goal').value;
+  const exp       = document.getElementById('f-experience').value;
+  const notes     = document.getElementById('f-notes').value.trim();
+  const errEl     = document.getElementById('form-err');
+  const btn       = document.getElementById('submit-btn');
+
+  errEl.style.display = 'none';
+  if(!firstname || !lastname) { errEl.textContent = 'Please enter your full name.'; errEl.style.display = 'block'; return; }
+  if(!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+  if(!goal) { errEl.textContent = 'Please select your main goal.'; errEl.style.display = 'block'; return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: firstname + ' ' + lastname,
+        email,
+        goal,
+        experience: exp || 'Not specified',
+        notes: notes || 'None',
+        _subject: '⚡ New Metconspud trial signup: ' + firstname + ' ' + lastname,
+      })
+    });
+
+    if(res.ok) {
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
+      document.getElementById('coach-phone').textContent = COACH_PHONE_DISPLAY;
+      document.getElementById('coach-phone').href = 'tel:' + COACH_PHONE;
+    } else {
+      const data = await res.json().catch(() => null);
+      const msg = data?.errors?.map(e => e.message).join(', ') || 'Submission failed';
+      throw new Error(msg);
+    }
+  } catch(e) {
+    errEl.textContent = "Something went wrong. Please email ptwithspud@gmail.com directly or call " + COACH_PHONE_DISPLAY + ".";
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Start my free 7-day trial →';
+  }
+}
+</script>
+</body>
+</html>
