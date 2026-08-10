@@ -54,6 +54,8 @@ img{max-width:100%;display:block;}
 .nav-cta{margin-left:8px;background:var(--ink);color:var(--paper);padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;transition:opacity .15s;}
 .nav-cta:hover{opacity:.85;}
 .nav-login{font-size:14px;font-weight:600;color:var(--ink3);}
+.nav-ig{display:flex;align-items:center;color:var(--ink3);transition:color .15s;}
+.nav-ig:hover{color:var(--ink);}
 .nav-login:hover{color:var(--ink);}
 @media(max-width:680px){.nav-links{display:none;}}
 
@@ -72,21 +74,41 @@ img{max-width:100%;display:block;}
 .hero-trust{display:flex;align-items:center;justify-content:center;gap:20px;font-size:13px;color:rgba(255,255,255,.4);font-weight:600;flex-wrap:wrap;}
 .hero-trust span::before{content:'✓  ';}
 
+/* ── Phone mockup ─────────────────────────────────────────── */
+.phone{position:relative;width:220px;flex-shrink:0;}
+.phone-frame{position:relative;background:#0a0a0a;border-radius:44px;padding:12px;box-shadow:0 0 0 1.5px #2a2a2a, 0 0 0 3px #1a1a1a, 0 40px 80px rgba(0,0,0,.55), 0 12px 24px rgba(0,0,0,.35);overflow:hidden;}
+.phone-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:28px;background:#0a0a0a;border-radius:0 0 18px 18px;z-index:2;}
+.phone-screen{border-radius:34px;overflow:hidden;background:#111;aspect-ratio:9/19.5;display:flex;align-items:center;justify-content:center;}
+.phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.phone-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#1a1a1a;color:rgba(255,255,255,.2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.phone-placeholder svg{opacity:.2;}
+.phone-caption{text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:rgba(255,255,255,.5);}
+
+/* App showcase section */
+.showcase-section{background:var(--ink);padding:80px 24px;}
+.showcase-section .section-eyebrow{color:rgba(255,255,255,.4);}
+.showcase-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:48px;color:var(--paper);}
+.showcase-phones{display:flex;justify-content:center;align-items:flex-end;gap:28px;flex-wrap:wrap;}
+.showcase-phones .phone{width:200px;}
+.showcase-phones .phone.center{width:230px;transform:translateY(-20px);}
+.showcase-phones .phone-caption{color:rgba(255,255,255,.45);}
+@media(max-width:760px){
+  .showcase-phones .phone{width:160px;}
+  .showcase-phones .phone.center{width:180px;}
+}
+@media(max-width:520px){
+  .showcase-phones{gap:12px;}
+  .showcase-phones .phone{width:130px;}
+  .showcase-phones .phone.center{width:150px;transform:translateY(-12px);}
+  .phone-caption{font-size:11px;}
+}
+
 /* ── Section base ─────────────────────────────────────────── */
 .section{padding:80px 24px;}
 .section-inner{max-width:var(--max);margin:0 auto;}
 .section-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
 .section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:16px;}
 .section-sub{font-size:18px;color:var(--ink3);max-width:540px;line-height:1.55;margin-bottom:48px;}
-
-/* ── What you get ─────────────────────────────────────────── */
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:var(--rl);overflow:hidden;}
-.what-item{background:var(--paper);padding:28px 24px;}
-.what-icon{font-size:24px;margin-bottom:14px;}
-.what-title{font-size:15px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;}
-.what-body{font-size:14px;color:var(--ink3);line-height:1.6;}
-@media(max-width:760px){.what-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:480px){.what-grid{grid-template-columns:1fr;}}
 
 /* ── How it works ─────────────────────────────────────────── */
 .how-section{background:var(--ink);color:var(--paper);}
@@ -143,6 +165,18 @@ img{max-width:100%;display:block;}
 .footer-links a{color:rgba(255,255,255,.35);transition:color .15s;}
 .footer-links a:hover{color:rgba(255,255,255,.7);}
 
+/* ── Contact ──────────────────────────────────────────────── */
+.contact-section{background:var(--paper2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.contact-channel{background:var(--paper);border:1.5px solid var(--bd2);border-radius:var(--rl);padding:28px 28px 24px;display:flex;flex-direction:column;gap:16px;}
+.contact-channel-icon{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-channel-title{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px;}
+.contact-channel-body{font-size:14px;color:var(--ink3);line-height:1.6;}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:var(--r);font-size:14px;font-weight:700;transition:opacity .15s;align-self:flex-start;}
+.contact-btn:hover{opacity:.85;}
+.contact-btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--bd2);color:var(--ink);padding:12px 22px;border-radius:var(--r);font-size:14px;font-weight:700;transition:all .15s;align-self:flex-start;}
+.contact-btn-ghost:hover{border-color:var(--ink);}
+@media(max-width:680px){.contact-grid{grid-template-columns:1fr;gap:16px;}}
 /* ── Scroll reveal ────────────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
@@ -156,12 +190,16 @@ img{max-width:100%;display:block;}
   <div class="nav-inner">
     <div class="nav-logo">Metcon<span>spud</span></div>
     <div class="nav-links">
-      <a href="#what-you-get">What's included</a>
+      <a href="#app-showcase">The app</a>
       <a href="#how-it-works">How it works</a>
       <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
     </div>
     <a href="https://app.metconspud.fit" class="nav-login">Client login</a>
-    <a href="mailto:hello@metconspud.fit" class="nav-cta">Get started</a>
+    <a href="https://ig.me/m/metconspud.fit" class="nav-ig" target="_blank" rel="noopener" aria-label="Message on Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="mailto:spud@metconspud.fit" class="nav-cta">Get started</a>
   </div>
 </nav>
 
@@ -182,45 +220,92 @@ img{max-width:100%;display:block;}
   </div>
 </section>
 
-<!-- What you get -->
-<section class="section" id="what-you-get">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">What's included</div>
-      <h2 class="section-title">Everything you need.<br>Nothing you won't use.</h2>
-      <p class="section-sub">Built for people who want to train seriously without overcomplicating it.</p>
+<!-- App showcase -->
+<section class="showcase-section" id="app-showcase">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,.4);">The app</div>
+    <h2 class="showcase-title">Everything in one place.</h2>
+    <div class="showcase-phones reveal">
+      <div class="phone ">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-programme.png" alt="Your weekly programme" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-programme.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Your weekly programme</div>
+        </div>
+      <div class="phone center">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-logging.png" alt="Session logging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-logging.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Session logging</div>
+        </div>
+      <div class="phone ">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-nutrition.png" alt="Nutrition tracking" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-nutrition.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Nutrition tracking</div>
+        </div>
     </div>
-    <div class="what-grid reveal">
-      <div class="what-item">
-        <div class="what-icon">📋</div>
-        <div class="what-title">Personalised programming</div>
-        <div class="what-body">Every session written for your goals, your equipment, your schedule. Adjusted as you progress.</div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">📱</div>
-        <div class="what-title">Dedicated client app</div>
-        <div class="what-body">Log every session, track weights, see your history and streak. Your training lives in one place.</div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">✅</div>
-        <div class="what-title">Weekly check-ins</div>
-        <div class="what-body">Weight, mood, sleep, energy — tracked every week so your coach can see what's really going on.</div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">🎥</div>
-        <div class="what-title">Exercise video demos</div>
-        <div class="what-body">Every exercise has a video so you know exactly what you're doing before you start a set.</div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">🥗</div>
-        <div class="what-title">Nutrition tracking</div>
-        <div class="what-body">Log food, track macros, monitor calories. Built into the same app as your training.</div>
-      </div>
-      <div class="what-item">
-        <div class="what-icon">📸</div>
-        <div class="what-title">Progress photos</div>
-        <div class="what-body">Upload and compare photos side by side. See what the scale can't always show you.</div>
-      </div>
+    <div class="showcase-phones reveal" style="margin-top:28px;">
+      <div class="phone ">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-checkin.png" alt="Weekly check-in" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-checkin.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Weekly check-in</div>
+        </div>
+      <div class="phone center">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-progress.png" alt="Strength tracker" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-progress.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Strength tracker</div>
+        </div>
+      <div class="phone ">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screenshots/screen-photos.png" alt="Progress photos" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="display:none;">
+              <div class="phone-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+              Add screenshot:<br>screen-photos.jpg
+            </div>
+            </div>
+          </div>
+          <div class="phone-caption">Progress photos</div>
+        </div>
     </div>
   </div>
 </section>
@@ -345,6 +430,45 @@ img{max-width:100%;display:block;}
 </section>
 
 
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="section-eyebrow">Get in touch</div>
+      <h2 class="section-title">Questions?<br>Drop me a message.</h2>
+      <p class="section-sub">Not sure if this is right for you? I'm always happy to have a quick chat before you commit to anything.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-channel">
+        <div class="contact-channel-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div>
+          <div class="contact-channel-title">Message me on Instagram</div>
+          <div class="contact-channel-body">The quickest way to reach me. Ask anything — goals, pricing, whether this is right for you. I reply to every message.</div>
+        </div>
+        <a href="https://ig.me/m/metconspud.fit" target="_blank" rel="noopener" class="contact-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          DM @metconspud.fit
+        </a>
+      </div>
+      <div class="contact-channel">
+        <div class="contact-channel-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-channel-title">Email me directly</div>
+          <div class="contact-channel-body">Prefer email? Send me a message and I'll come back to you within 24 hours. No auto-responders, no waiting.</div>
+        </div>
+        <a href="mailto:spud@metconspud.fit" class="contact-btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          spud@metconspud.fit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Signup form -->
 <section class="section" id="signup" style="background:var(--paper2);">
   <div class="section-inner" style="max-width:560px;">
@@ -424,9 +548,10 @@ img{max-width:100%;display:block;}
     <div class="footer-links">
       <a href="https://app.metconspud.fit">Client login</a>
       <a href="https://coach.metconspud.fit">Coach login</a>
-      <a href="mailto:hello@metconspud.fit">Contact</a>
+      <a href="mailto:spud@metconspud.fit">Contact</a>
+      <a href="https://instagram.com/metconspud.fit" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <div>© 2025 Metconspud. All rights reserved.</div>
+    <div>© 2026 Metconspud. All rights reserved.</div>
   </div>
 </footer>
 
