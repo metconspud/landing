@@ -45,8 +45,10 @@ img{max-width:100%;display:block;}
 
 /* ── Nav ──────────────────────────────────────────────────── */
 .nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--bd);padding:0 24px;}
-.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;height:60px;gap:32px;}
-.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;text-transform:uppercase;}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;height:76px;gap:24px;flex-wrap:wrap;}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-logo-img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:30px;letter-spacing:-.02em;text-transform:uppercase;line-height:1;}
 .nav-logo span{color:var(--ink3);}
 .nav-links{display:flex;gap:28px;margin-left:auto;}
 .nav-links a{font-size:14px;font-weight:600;color:var(--ink3);transition:color .15s;}
@@ -57,7 +59,8 @@ img{max-width:100%;display:block;}
 .nav-ig{display:flex;align-items:center;color:var(--ink3);transition:color .15s;}
 .nav-ig:hover{color:var(--ink);}
 .nav-login:hover{color:var(--ink);}
-@media(max-width:680px){.nav-links{display:none;}}
+@media(max-width:900px){.nav-links{display:none;}}
+@media(max-width:680px){.nav-inner{height:auto;padding:14px 0;}.mode-switch{order:3;width:100%;justify-content:center;margin-left:0;}.nav-links{margin-left:0;}}
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero{background:var(--ink);color:var(--paper);padding:80px 24px 72px;text-align:center;position:relative;overflow:hidden;}
@@ -181,6 +184,53 @@ img{max-width:100%;display:block;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* ── Mode switch ──────────────────────────────────────────── */
+.mode-switch{display:inline-flex;background:var(--paper2);border:1px solid var(--bd2);border-radius:999px;padding:3px;gap:2px;flex-shrink:0;}
+.mode-tab{background:none;border:none;font-family:inherit;font-size:13px;font-weight:700;padding:8px 18px;border-radius:999px;cursor:pointer;color:var(--ink3);transition:all .15s;}
+.mode-tab.active{background:var(--ink);color:var(--paper);}
+.mode-tab:not(.active):hover{color:var(--ink);}
+
+/* ── Personal Training hero ──────────────────────────────── */
+.pt-hero{padding:72px 24px;background:var(--paper2);}
+.pt-hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+.pt-hero-headline{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(40px,6vw,72px);line-height:.98;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:22px;}
+.pt-hero-headline em{font-style:italic;color:var(--ink3);}
+.pt-hero-sub{font-size:16px;color:var(--ink2);max-width:460px;margin-bottom:28px;line-height:1.6;}
+.pt-hero-img img{width:100%;border-radius:var(--rl);box-shadow:0 20px 50px rgba(0,0,0,.15);}
+@media(max-width:800px){.pt-hero-inner{grid-template-columns:1fr;}.pt-hero-img{order:-1;max-width:360px;margin:0 auto;}}
+
+/* ── Credentials grid ─────────────────────────────────────── */
+.cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;}
+.cred-item{border-top:1px solid var(--bd);padding-top:16px;}
+.cred-title{font-size:15px;font-weight:800;margin-bottom:5px;letter-spacing:-.01em;}
+.cred-body{font-size:14px;color:var(--ink3);line-height:1.55;}
+@media(max-width:600px){.cred-grid{grid-template-columns:1fr;}}
+
+/* ── Then/now photo pair ──────────────────────────────────── */
+.pt-then-now{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+.pt-then-now-item img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--rl);box-shadow:0 12px 30px rgba(0,0,0,.12);}
+.pt-then-now-cap{font-size:12px;font-weight:700;color:var(--ink3);margin-top:10px;text-align:center;line-height:1.4;}
+@media(max-width:760px){.pt-then-now{grid-template-columns:1fr 1fr;}}
+@media(max-width:420px){.pt-then-now{grid-template-columns:1fr;max-width:280px;margin-left:auto;margin-right:auto;}}
+
+/* ── PT service cards ─────────────────────────────────────── */
+.pt-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pt-service-card{background:var(--paper);border:1.5px solid var(--bd2);border-radius:var(--rl);padding:28px 24px;}
+.pt-service-icon{font-size:28px;margin-bottom:14px;}
+.pt-service-title{font-size:16px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;}
+.pt-service-body{font-size:14px;color:var(--ink3);line-height:1.6;}
+@media(max-width:760px){.pt-service-grid{grid-template-columns:1fr;}}
+
+/* ── XGym classes gallery ─────────────────────────────────── */
+.xgym-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.xgym-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--rl);}
+@media(max-width:760px){.xgym-grid{grid-template-columns:1fr 1fr;}.xgym-grid > *:first-child{grid-column:1/-1;}}
+
+/* ── PT pricing ───────────────────────────────────────────── */
+.pt-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.pt-price-grid .price-card{max-width:none;}
+@media(max-width:680px){.pt-price-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -188,21 +238,36 @@ img{max-width:100%;display:block;}
 <!-- Nav -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="nav-logo">Metcon<span>spud</span></div>
-    <div class="nav-links">
+    <a href="#" class="nav-brand">
+      <img src="Metonspud_logo_black.png" class="nav-logo-img" alt="Metconspud logo">
+      <span class="nav-logo">Metcon<span>spud</span></span>
+    </a>
+    <div class="mode-switch">
+      <button class="mode-tab active" id="mode-tab-pt" onclick="setView('pt')">Personal Training</button>
+      <button class="mode-tab" id="mode-tab-remote" onclick="setView('remote')">Remote Coaching</button>
+    </div>
+    <div class="nav-links" id="nav-links-remote" style="display:none;">
       <a href="#app-showcase">The app</a>
       <a href="#how-it-works">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
     </div>
+    <div class="nav-links" id="nav-links-pt">
+      <a href="#pt-about">About</a>
+      <a href="#pt-services">Training</a>
+      <a href="#pt-pricing">Pricing</a>
+      <a href="#pt-xgym">Classes</a>
+      <a href="#pt-contact">Get in touch</a>
+    </div>
     <a href="https://app.metconspud.fit" class="nav-login">Client login</a>
     <a href="https://ig.me/m/metconspud.fit" class="nav-ig" target="_blank" rel="noopener" aria-label="Message on Instagram">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a href="mailto:spud@metconspud.fit" class="nav-cta">Get started</a>
+    <a href="#pt-contact" class="nav-cta" id="nav-cta">Get in touch</a>
   </div>
 </nav>
 
+<div id="view-remote" style="display:none;">
 <!-- Hero -->
 <section class="hero">
   <div class="hero-eyebrow">7-day free trial · No card required · Cancel anytime</div>
@@ -541,6 +606,202 @@ img{max-width:100%;display:block;}
   </div>
 </section>
 
+</div><!-- /#view-remote -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PERSONAL TRAINING VIEW
+     ══════════════════════════════════════════════════════════ -->
+<div id="view-pt">
+
+  <!-- PT Hero -->
+  <section class="pt-hero">
+    <div class="pt-hero-inner">
+      <div class="pt-hero-copy reveal">
+        <div class="hero-eyebrow" style="color:var(--ink3);">In-person coaching</div>
+        <h1 class="pt-hero-headline">Personal<br>training,<br><em>done properly.</em></h1>
+        <p class="pt-hero-sub">1:1 and small-group coaching for people who want real accountability, not a printed sheet. Built on the same programming that powers Metconspud's remote coaching — just delivered in person.</p>
+        <div class="hero-actions" style="justify-content:flex-start;">
+          <a href="#pt-contact" class="btn-primary" style="background:var(--ink);color:var(--paper);">Get in touch</a>
+          <a href="#pt-about" class="btn-ghost" style="color:var(--ink3);border-color:var(--bd2);">My story</a>
+        </div>
+      </div>
+      <div class="pt-hero-img reveal">
+        <img src="Screenshot_2026-09-06_at_12_35_26.png" alt="Spud training" onerror="this.style.display='none';">
+      </div>
+    </div>
+  </section>
+
+  <!-- About / story -->
+  <section class="section" id="pt-about">
+    <div class="section-inner">
+      <div class="reveal" style="max-width:720px;">
+        <div class="section-eyebrow">Who I am</div>
+        <h2 class="section-title">From Special Forces<br>Support Group to PT.</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink2);margin-bottom:18px;">
+          Before I ever wrote a programme for anyone else, I trained for a living — as a former British Army Special Forces Support Group Operator. That background shapes everything about how I coach: training has to work when it actually matters, not just look good on paper.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink2);margin-bottom:18px;">
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink2);">
+          I also built and run Metconspud, a remote coaching platform I use to programme and track training for clients all over — so whether you're training with me in person or online, the same standard of programming and attention goes into it.
+        </p>
+      </div>
+
+      <div class="pt-then-now reveal">
+        <div class="pt-then-now-item">
+          <img src="Emp2010.jpg" alt="Serving with the British Army">
+          <div class="pt-then-now-cap">Then — serving with the British Army</div>
+        </div>
+        <div class="pt-then-now-item">
+          <img src="Screenshot_2019-09-03_at_19_51_25.png" alt="On tour in Afghanistan">
+          <div class="pt-then-now-cap">On tour in Afghanistan</div>
+        </div>
+        <div class="pt-then-now-item">
+          <img src="PHOTO-2026-09-06-12-24-33.jpg" alt="Coaching and training today">
+          <div class="pt-then-now-cap">Now — still training, just for a different reason</div>
+        </div>
+        <div class="pt-then-now-item">
+          <img src="78169457_2966033210093134_9111669042816483328_o.jpg" alt="Fitness competition in London">
+          <div class="pt-then-now-cap">Still don't take it too seriously</div>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:48px;">
+        <div class="section-eyebrow">Why train with me</div>
+        <div class="cred-grid">
+          <div class="cred-item">
+            <div class="cred-title">Former Special Forces Support Group Operator</div>
+            <div class="cred-body">Real operational training experience, not just a textbook qualification.</div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-title">Built my own coaching platform</div>
+            <div class="cred-body">I run Metconspud end-to-end — programming, tracking, and adjusting training for clients every week.</div>
+          </div>
+          <div class="cred-item">
+            <!-- EDIT ME: swap in your actual PT qualification(s) -->
+            <div class="cred-title">Level 4 Personal Trainer, Pre/Post Natal Trainer, Disabilities Specialist Trainer</div>
+            <div class="cred-body">[e.g. Level 3 Personal Trainer, insured, first-aid certified — add what applies.]</div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-title">Functional, no-nonsense programming</div>
+            <div class="cred-body">Strength, conditioning and mobility work that's built around your goals — not a copy-paste plan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="pt-services" style="background:var(--paper2);">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Training</div>
+        <h2 class="section-title">How we can train together.</h2>
+      </div>
+      <div class="pt-service-grid reveal">
+        <div class="pt-service-card">
+          <div class="pt-service-icon">💪</div>
+          <div class="pt-service-title">1:1 Personal Training</div>
+          <div class="pt-service-body">Fully individual sessions, programmed around your goals, schedule and any injuries or limitations.</div>
+        </div>
+        <div class="pt-service-card">
+          <div class="pt-service-icon">👥</div>
+          <div class="pt-service-title">Small Group Training</div>
+          <div class="pt-service-body">Train alongside a small group of others for a bit more energy and accountability, without losing individual attention.</div>
+        </div>
+        <div class="pt-service-card">
+          <div class="pt-service-icon">📋</div>
+          <div class="pt-service-title">Bespoke Programming</div>
+          <div class="pt-service-body">Want to train on your own but need a proper plan? I'll build and adjust a programme for you, delivered through the Metconspud app.</div>
+        </div>
+      </div>
+      <!-- EDIT ME: if you serve a specific local area (e.g. "based in Southampton, mobile within 10 miles"), add a line here — didn't want to assume your service area. -->
+    </div>
+  </section>
+
+  <!-- PT Pricing -->
+  <section class="section" id="pt-pricing">
+    <div class="section-inner">
+      <div class="reveal" style="margin-bottom:36px;">
+        <div class="section-eyebrow">Pricing</div>
+        <h2 class="section-title">In-person rates.</h2>
+      </div>
+      <div class="pt-price-grid reveal">
+        <div class="price-card">
+          <div class="price-badge">1:1 Personal Training</div>
+          <div class="price-amount"><strong>£65</strong><span>/hour</span></div>
+          <div class="price-tagline">£60/hour when booked as a monthly block.</div>
+        </div>
+        <div class="price-card">
+          <div class="price-badge">Small Group (2+ people)</div>
+          <div class="price-amount"><strong>£75</strong><span>/hour</span></div>
+          <div class="price-tagline">£70/hour when booked as a monthly block.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- XGym classes -->
+  <section class="section" id="pt-xgym" style="background:var(--paper2);">
+    <div class="section-inner">
+      <div class="reveal" style="margin-bottom:36px;">
+        <div class="section-eyebrow">Group coaching</div>
+        <h2 class="section-title">Also coaching at XGym.</h2>
+        <p class="section-sub">
+          <!-- EDIT ME: add a couple of sentences here about what you actually do at XGym — which classes, how often, what people can expect if they come along. -->
+          [I coach Group Training classes at XGym, Chichester. These are Strength and Conditioning sessions with stacks of variation.]
+        </p>
+      </div>
+      <div class="xgym-grid reveal">
+        <img src="PHOTO-2026-09-06-12-25-04.jpg" alt="Coaching a lift at XGym Chichester">
+        <img src="PHOTO-2026-09-06-12-23-49.jpg" alt="Group mobility session at XGym">
+        <img src="PHOTO-2026-09-06-12-23-16.jpg" alt="Spotting and coaching a client at XGym">
+      </div>
+    </div>
+  </section>
+
+  <!-- PT Contact -->
+  <section class="section" id="pt-contact">
+    <div class="section-inner">
+      <div class="reveal" style="margin-bottom:40px;">
+        <div class="section-eyebrow">Get in touch</div>
+        <h2 class="section-title">Let's talk training.</h2>
+        <p class="section-sub">Tell me your goals and what you're looking for — I'll get back to you to find a time that works.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-channel">
+          <div class="contact-channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div>
+            <div class="contact-channel-title">Message me on Instagram</div>
+            <div class="contact-channel-body">The quickest way to reach me. Ask anything — goals, availability, whether this is right for you.</div>
+          </div>
+          <a href="https://ig.me/m/metconspud.fit" target="_blank" rel="noopener" class="contact-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            DM @metconspud.fit
+          </a>
+        </div>
+        <div class="contact-channel">
+          <div class="contact-channel-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-channel-title">Email me directly</div>
+            <div class="contact-channel-body">Prefer email? Send me a message and I'll come back to you within 24 hours.</div>
+          </div>
+          <a href="mailto:spud@metconspud.fit" class="contact-btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            spud@metconspud.fit
+          </a>
+        </div>
+      </div>
+      <!-- EDIT ME: once you've got a booking link set up (Google Calendar / Calendly), add a third contact-channel card here for "Book a free consult call" -->
+    </div>
+  </section>
+
+</div><!-- /#view-pt -->
+
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
@@ -561,6 +822,27 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Remote Coaching / Personal Training view switch ─────────
+function setView(mode) {
+  const isRemote = mode === 'remote';
+  document.getElementById('view-remote').style.display = isRemote ? '' : 'none';
+  document.getElementById('view-pt').style.display = isRemote ? 'none' : '';
+  document.getElementById('nav-links-remote').style.display = isRemote ? '' : 'none';
+  document.getElementById('nav-links-pt').style.display = isRemote ? 'none' : '';
+  document.getElementById('mode-tab-remote').classList.toggle('active', isRemote);
+  document.getElementById('mode-tab-pt').classList.toggle('active', !isRemote);
+  const cta = document.getElementById('nav-cta');
+  if (isRemote) { cta.textContent = 'Get started';  cta.href = 'mailto:spud@metconspud.fit'; }
+  else          { cta.textContent = 'Get in touch'; cta.href = '#pt-contact'; }
+  // Re-observe any reveal elements that haven't animated yet (newly shown view)
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.replaceState(null, '', isRemote ? '#remote' : '#');
+}
+// Deep-link support: metconspud.fit/#remote opens the Remote Coaching tab.
+// Personal Training is the default view.
+if (window.location.hash === '#remote') setView('remote');
 </script>
 <script>
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgddnaq';
